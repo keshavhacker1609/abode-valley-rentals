@@ -1,11 +1,12 @@
 import { ImageResponse } from "next/og";
+import { getSiteConfig } from "@/lib/site";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export const alt = "Flats for rent at Abode Valley, Kattankulathur";
 
 export default function OG() {
-  const name = process.env.NEXT_PUBLIC_BROKERAGE_NAME || "Abode Valley Rentals";
+  const { name } = getSiteConfig();
   return new ImageResponse(
     (
       <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between", padding: 72, background: "#F7F4EE", color: "#1C1C1C", fontFamily: "serif" }}>

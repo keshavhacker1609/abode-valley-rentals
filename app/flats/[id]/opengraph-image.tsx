@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { getSiteConfig } from "@/lib/site";
 import { getFlat } from "@/lib/inventory";
 import { formatINR, ordinal, typeLabel } from "@/lib/utils";
 
@@ -8,7 +9,7 @@ export const alt = "Flat for rent at Abode Valley";
 
 export default async function OG({ params }: { params: { id: string } }) {
   const flat = await getFlat(params.id);
-  const name = process.env.NEXT_PUBLIC_BROKERAGE_NAME || "Abode Valley Rentals";
+  const { name } = getSiteConfig();
   return new ImageResponse(
     (
       <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between", padding: 72, background: "#1F3A2E", color: "#F7F4EE", fontFamily: "serif" }}>

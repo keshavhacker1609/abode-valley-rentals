@@ -22,7 +22,7 @@ export function getSiteConfig(): SiteConfig {
   const lead = brokers.find((b) => b.primary) ?? brokers[0];
   const phone = (process.env.PHONE || lead?.phone || "").replace(/\D/g, "");
   return {
-    name: process.env.NEXT_PUBLIC_BROKERAGE_NAME || "[YOUR BROKERAGE NAME]",
+    name: process.env.NEXT_PUBLIC_BROKERAGE_NAME || "VILEN Rentals",
     url: (process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000").replace(/\/$/, ""),
     phone,
     phoneDisplay: displayPhone(phone),
