@@ -12,10 +12,20 @@ export function Footer() {
         <div className="grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <p className="font-display text-display-md text-balance">Find your flat at Abode Valley, without the runaround.</p>
-            <div className="mt-8 space-y-1 text-on-forest/80">
-              <p><a className="link-underline" href={`tel:+${site.phone}`}>{site.phoneDisplay}</a></p>
-              <p><a className="link-underline" href={`mailto:${site.email}`}>{site.email}</a></p>
-              <p className="max-w-xs pt-3 text-sm leading-relaxed">{site.address}</p>
+            <ul className="mt-8 space-y-4 text-on-forest/85">
+              {site.team.map((b) => (
+                <li key={b.id}>
+                  <p className="font-medium text-on-forest">{b.name}</p>
+                  <p className="text-sm">
+                    <a className="link-underline" href={`tel:+${b.phone}`}>{b.phoneDisplay}</a>
+                    <span className="mx-2 opacity-40">·</span>
+                    <a className="link-underline break-all" href={`mailto:${b.email}`}>{b.email}</a>
+                  </p>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-6 space-y-1 text-on-forest/80">
+              <p className="max-w-xs text-sm leading-relaxed">{site.address}</p>
               <p className="text-sm">{site.hours}</p>
             </div>
           </div>

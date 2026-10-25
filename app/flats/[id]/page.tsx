@@ -12,6 +12,7 @@ import { JsonLd } from "@/lib/jsonld";
 import { FLOORS } from "@/lib/estate";
 import { cn, formatDate, formatINR, isAvailableNow, ordinal, typeLabel, whatsappLink } from "@/lib/utils";
 import { Gallery } from "@/components/flat/gallery";
+import { BrokerCards } from "@/components/team/broker-cards";
 import { ScheduleVisit } from "@/components/flat/schedule-visit";
 import { ShareButton } from "@/components/flat/share-button";
 import { RecentlyViewed } from "@/components/flat/recently-viewed";
@@ -133,6 +134,10 @@ export default async function FlatPage({ params }: { params: { id: string } }) {
                 </div>
               </div>
               <div className="mt-5 flex justify-center"><CompareToggle id={flat.id} /></div>
+              <div className="mt-6 border-t border-line pt-4">
+                <p className="eyebrow mb-1">Your brokers</p>
+                <BrokerCards compact team={site.team} message={waText} />
+              </div>
             </div>
           </aside>
         </div>

@@ -33,6 +33,7 @@ export function localBusinessLd() {
     areaServed: ["Kattankulathur", "Potheri", "SRM Nagar", "Guduvanchery", "Maraimalai Nagar"],
     openingHours: "Mo-Sa 09:30-19:30",
     priceRange: "₹₹",
+    employee: site.team.map((b) => ({ "@type": "Person", name: b.name, jobTitle: b.role, telephone: `+${b.phone}`, email: b.email })),
   };
 }
 

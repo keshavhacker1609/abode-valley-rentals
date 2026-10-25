@@ -85,6 +85,16 @@ export interface Place {
   lng: number;
 }
 
+export interface Broker {
+  id: string;
+  name: string;
+  role: string;
+  phone: string; // digits, with country code
+  phoneDisplay: string;
+  email: string;
+  primary?: boolean;
+}
+
 export interface SiteConfig {
   name: string;
   url: string;
@@ -94,4 +104,5 @@ export interface SiteConfig {
   address: string;
   hours: string;
   mapsKey: string;
+  team: Broker[];
 }

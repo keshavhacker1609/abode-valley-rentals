@@ -1,4 +1,5 @@
-import { Clock, Mail, MapPin, Phone } from "lucide-react";
+import { Clock, MapPin } from "lucide-react";
+import { BrokerCards } from "@/components/team/broker-cards";
 import { EnquiryForm } from "@/components/forms/enquiry-form";
 import { ScheduleVisit } from "@/components/flat/schedule-visit";
 import { PageHeader } from "@/components/ui/page-header";
@@ -17,6 +18,10 @@ export default function ContactPage({ searchParams }: { searchParams: { flat?: s
   return (
     <>
       <PageHeader label="Contact" title="Tell us what you're looking for." intro="Most enquiries get a call back within two working hours, with a shortlist of three to five flats." />
+      <section className="container mb-16" aria-labelledby="brokers-title">
+        <h2 id="brokers-title" className="eyebrow mb-6">Talk to a broker directly</h2>
+        <BrokerCards team={site.team} message="Hi, I'm looking for a flat to rent at Abode Valley, Kattankulathur." />
+      </section>
       <div className="container grid gap-12 lg:grid-cols-12">
         <div className="lg:col-span-8"><EnquiryForm flatId={flatId} /></div>
         <aside className="space-y-8 lg:col-span-4">
@@ -26,8 +31,6 @@ export default function ContactPage({ searchParams }: { searchParams: { flat?: s
             <div className="mt-6"><ScheduleVisit flatId={flatId} triggerProps={{ variant: "light", className: "w-full" }} /></div>
           </div>
           <ul className="space-y-5">
-            <li className="flex gap-4"><Phone className="mt-0.5 size-5 shrink-0" /><a className="link-underline" href={`tel:+${site.phone}`}>{site.phoneDisplay}</a></li>
-            <li className="flex gap-4"><Mail className="mt-0.5 size-5 shrink-0" /><a className="link-underline" href={`mailto:${site.email}`}>{site.email}</a></li>
             <li className="flex gap-4"><MapPin className="mt-0.5 size-5 shrink-0" /><span>{site.address}</span></li>
             <li className="flex gap-4"><Clock className="mt-0.5 size-5 shrink-0" /><span>{site.hours}</span></li>
           </ul>

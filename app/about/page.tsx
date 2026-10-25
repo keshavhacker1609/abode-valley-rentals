@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { getProcess } from "@/lib/content";
+import { getSiteConfig } from "@/lib/site";
+import { BrokerCards } from "@/components/team/broker-cards";
 import { blurProps } from "@/lib/images";
 import { pageMeta } from "@/lib/seo";
 import { PageHeader } from "@/components/ui/page-header";
@@ -33,7 +35,12 @@ export default function AboutPage() {
           </li>
         ))}
       </ol>
-      <div className="container mt-28 flex flex-wrap justify-center gap-3">
+      <section className="container mt-28" aria-labelledby="team-title">
+        <h2 id="team-title" className="font-display text-display-md">The team</h2>
+        <p className="mt-3 max-w-xl text-ink-soft">Three brokers, one estate. Call or WhatsApp whoever's convenient; we share one shortlist, so you won't repeat yourself.</p>
+        <BrokerCards className="mt-10" team={getSiteConfig().team} message="Hi, I'm looking for a flat to rent at Abode Valley." />
+      </section>
+      <div className="container mt-20 flex flex-wrap justify-center gap-3">
         <Button asChild size="lg"><Link href="/listings">Start with step one <ArrowRight /></Link></Button>
         <Button asChild size="lg" variant="outline"><Link href="/owners">I'm an owner</Link></Button>
       </div>

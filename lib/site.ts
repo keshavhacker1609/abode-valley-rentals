@@ -1,5 +1,6 @@
 import "server-only";
-import type { SiteConfig } from "./types";
+import type { Broker, SiteConfig } from "./types";
+import team from "@/data/team.json";
 
 /** Formats "919876543210" as "+91 98765 43210"; anything else is shown as given. */
 function displayPhone(digits: string) {
@@ -8,17 +9,27 @@ function displayPhone(digits: string) {
   return digits;
 }
 
-/** Single source of brand/contact config, read from the environment. See .env.example. */
+export function getTeam(): Broker[] {
+  return team.map((b) => ({ ...b, phoneDisplay: displayPhone(b.phone) }));
+}
+
+/**
+ * Single source of brand/contact config. PHONE / EMAIL in the environment override the default,
+ * which is the broker marked "primary" in data/team.json. See .env.example.
+ */
 export function getSiteConfig(): SiteConfig {
-  const phone = (process.env.PHONE ?? "{{PHONE}}").replace(/[^\d{}A-Z]/g, "");
+  const brokers = getTeam();
+  const lead = brokers.find((b) => b.primary) ?? brokers[0];
+  const phone = (process.env.PHONE || lead?.phone || "").replace(/\D/g, "");
   return {
     name: process.env.NEXT_PUBLIC_BROKERAGE_NAME || "[YOUR BROKERAGE NAME]",
     url: (process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000").replace(/\/$/, ""),
     phone,
     phoneDisplay: displayPhone(phone),
-    email: process.env.EMAIL || "{{EMAIL}}",
+    email: process.env.EMAIL || lead?.email || "",
     address: process.env.ADDRESS || "{{ADDRESS}}",
     hours: process.env.OFFICE_HOURS || "Mon–Sat, 9:30am – 7:30pm",
     mapsKey: process.env.MAPS_KEY || "",
+    team: brokers,
   };
 }
