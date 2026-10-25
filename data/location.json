@@ -1,0 +1,16 @@
+{
+ "estate": {"name":"Abode Valley","lat":12.8262,"lng":80.0402,"note":"Coordinates are approximate. Confirm the exact pin and update this file."},
+ "googleMapsQuery":"Abode Valley Apartments, Potheri, Kattankulathur",
+ "places": [
+  {"id":"srm","name":"SRM Institute of Science & Technology","category":"Education","distanceKm":1.5,"minutes":5,"mode":"by scooter","lat":12.8231,"lng":80.0442},
+  {"id":"srm-hospital","name":"SRM General Hospital","category":"Healthcare","distanceKm":2.1,"minutes":7,"mode":"by car","lat":12.8209,"lng":80.0459},
+  {"id":"potheri","name":"Potheri railway station","category":"Transit","distanceKm":1.2,"minutes":4,"mode":"by auto","lat":12.8257,"lng":80.0365},
+  {"id":"ktr","name":"Kattankulathur railway station","category":"Transit","distanceKm":2.6,"minutes":8,"mode":"by auto","lat":12.8133,"lng":80.0465},
+  {"id":"gst","name":"GST Road (NH 32)","category":"Transit","distanceKm":0.8,"minutes":3,"mode":"by car","lat":12.8247,"lng":80.0418},
+  {"id":"mwc","name":"Mahindra World City","category":"Work","distanceKm":14,"minutes":25,"mode":"by car","lat":12.7339,"lng":79.9906},
+  {"id":"estancia","name":"Estancia IT Park, Vallancheri","category":"Work","distanceKm":3.2,"minutes":9,"mode":"by car","lat":12.8381,"lng":80.0327},
+  {"id":"guduvanchery","name":"Guduvanchery market","category":"Daily needs","distanceKm":5.8,"minutes":14,"mode":"by car","lat":12.8447,"lng":80.0602},
+  {"id":"maa","name":"Chennai International Airport","category":"Travel","distanceKm":29,"minutes":45,"mode":"by car","lat":12.9941,"lng":80.1709}
+ ],
+ "disclaimer":"Distances are road estimates from the main gate and vary with traffic."
+}

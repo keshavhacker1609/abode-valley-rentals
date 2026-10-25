@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --paper: 247 244 238;      /* #F7F4EE */
+    --card: 255 253 249;
+    --ink: 28 28 28;           /* #1C1C1C */
+    --ink-soft: 84 80 74;
+    --forest: 31 58 46;        /* #1F3A2E */
+    --forest-deep: 22 42 33;
+    --on-forest: 247 244 238;
+    --terracotta: 194 100 59;  /* #C2643B: decorative only (3.9:1 on paper) */
+    --terracotta-ink: 163 73 42; /* AA-safe for text and button fills */
+    --sand: 230 220 203;       /* #E6DCCB */
+    --line: 221 213 199;
+    --status-available: 46 125 80;
+    --status-reserved: 150 98 8;
+    --status-rented: 120 116 108;
+    color-scheme: light;
+  }
+  .dark {
+    --paper: 18 22 19;
+    --card: 27 32 28;
+    --ink: 237 232 223;
+    --ink-soft: 178 171 160;
+    --forest: 36 70 55;
+    --forest-deep: 12 24 18;
+    --on-forest: 241 237 229;
+    --terracotta: 214 125 86;
+    --terracotta-ink: 232 146 108;
+    --sand: 40 46 41;
+    --line: 56 63 57;
+    --status-available: 104 190 140;
+    --status-reserved: 230 170 70;
+    --status-rented: 150 146 138;
+    color-scheme: dark;
+  }
+
+  html { -webkit-text-size-adjust: 100%; }
+  html.lenis, html.lenis body { height: auto; }
+  .lenis.lenis-smooth { scroll-behavior: auto !important; }
+  .lenis.lenis-stopped { overflow: hidden; }
+
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+    font-feature-settings: "ss01", "cv11";
+    text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display), Georgia, serif;
+    font-variation-settings: "opsz" 96, "SOFT" 50;
+    font-weight: 400;
+  }
+  ::selection { @apply bg-terracotta text-paper; }
+
+  :focus-visible {
+    outline: 2px solid rgb(var(--terracotta-ink));
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  /* Native date input in dark mode */
+  .dark input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(0.85); }
+}
+
+@layer components {
+  /* Small-caps editorial label */
+  .eyebrow {
+    @apply text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-ink-soft;
+  }
+  .rule { @apply h-px w-full bg-line; }
+  .link-underline {
+    background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+    transition: background-size 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .link-underline:hover, .link-underline:focus-visible { background-size: 100% 1px; }
+
+  .input {
+    @apply h-12 w-full rounded-xl border border-line bg-card px-4 text-[0.95rem] text-ink placeholder:text-ink-soft/70
+      transition-colors focus:border-forest focus:outline-none focus:ring-2 focus:ring-forest/20 dark:focus:border-terracotta-ink;
+  }
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.06;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .split-line { overflow: hidden; padding-bottom: 0.06em; margin-bottom: -0.06em; }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+  .scrollbar-none { scrollbar-width: none; }
+  .scrollbar-none::-webkit-scrollbar { display: none; }
+  .pb-safe { padding-bottom: max(0.75rem, env(safe-area-inset-bottom)); }
+}
+
+/* Leaflet: keep tiles calm and on-brand */
+.leaflet-container { font: inherit; background: rgb(var(--sand)); border-radius: inherit; }
+.leaflet-popup-content-wrapper, .leaflet-popup-tip { background: rgb(var(--card)); color: rgb(var(--ink)); border-radius: 14px; box-shadow: 0 12px 30px -12px rgb(0 0 0 / 0.35); }
+.leaflet-popup-content { margin: 14px 16px; }
+.dark .leaflet-tile-pane { filter: grayscale(0.6) invert(0.9) hue-rotate(180deg) brightness(0.85); }
+.map-pin { background: none; border: none; }
+
+/* Custom cursor only on fine pointers, opt-in via body class */
+@media (pointer: fine) {
+  body.has-cursor, body.has-cursor a, body.has-cursor button { cursor: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Preloader: SVG stroke draw → curtain reveal ── */
+.preloader { display: none; }
+html.preload .preloader { display: block; position: fixed; inset: 0; z-index: 200; }
+html.preload body { overflow: hidden; }
+.preloader-panel { position: absolute; inset: 0; background: rgb(var(--forest-deep)); transition: transform 1s cubic-bezier(0.76, 0, 0.24, 1); }
+.preloader-panel-b { background: rgb(var(--terracotta)); transform: translateY(100%); transition-delay: 0s; }
+.preloader-content { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 0.4s ease, transform 0.8s cubic-bezier(0.76, 0, 0.24, 1); }
+.logo-draw { stroke-dasharray: 1; stroke-dashoffset: 1; animation: logo-draw 1.1s cubic-bezier(0.65, 0, 0.35, 1) forwards; }
+.logo-draw-2 { animation-delay: 0.35s; }
+.logo-draw-3 { animation-delay: 0.6s; }
+.preloader-name { opacity: 0; transform: translateY(10px); animation: preloader-name 0.8s 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+@keyframes logo-draw { to { stroke-dashoffset: 0; } }
+@keyframes preloader-name { to { opacity: 1; transform: none; } }
+html.preload-out .preloader-content { opacity: 0; transform: translateY(-40px); }
+html.preload-out .preloader-panel-a { transform: translateY(-100%); transition-delay: 0.15s; }
+html.preload-out .preloader-panel-b { animation: curtain-b 1.05s cubic-bezier(0.76, 0, 0.24, 1) forwards; }
+@keyframes curtain-b { 0% { transform: translateY(100%); } 45% { transform: translateY(0); } 100% { transform: translateY(-100%); } }
+
+/* ── Custom cursor ── */
+.cursor-ring-inner { width: 36px; height: 36px; margin: -18px 0 0 -18px; transition: width 0.4s cubic-bezier(0.16,1,0.3,1), height 0.4s cubic-bezier(0.16,1,0.3,1), margin 0.4s cubic-bezier(0.16,1,0.3,1), background-color 0.3s; }
+.cursor-ring.is-hover .cursor-ring-inner { width: 56px; height: 56px; margin: -28px 0 0 -28px; }
+.cursor-ring.is-label .cursor-ring-inner { width: 84px; height: 84px; margin: -42px 0 0 -42px; background: white; color: black; }
+.cursor-label { opacity: 0; transition: opacity 0.2s; }
+.cursor-ring.is-label .cursor-label { opacity: 1; }
+
+/* Below-the-fold split headings stay hidden until their reveal is wired up (JS only). */
+html.js [data-split="scroll"] { visibility: hidden; }
+@media (prefers-reduced-motion: reduce) { html.js [data-split="scroll"] { visibility: visible; } }
+
+/* Mobile hero/page-title entrance: transform only, so the text counts as painted at once. */
+.rise-in { animation: rise-in 1s cubic-bezier(0.16, 1, 0.3, 1) both; }
+@keyframes rise-in { from { transform: translateY(28px); } to { transform: none; } }

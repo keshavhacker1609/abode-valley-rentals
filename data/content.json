@@ -1,0 +1,15 @@
+{
+ "hero": {
+  "eyebrow": "Abode Valley · Kattankulathur",
+  "headline": "Homes beside SRM,\nlet the honest way.",
+  "sub": "Every 2.75 and 3 BHK flat for rent across every block, with rent, deposit and maintenance listed up front. Visits arranged around your timetable.",
+  "image": "/images/exterior/hero-aerial-pool.webp",
+  "video": ""
+ },
+ "why": [
+  {"kicker":"Five minutes to class","title":"Walk, cycle or scooter to SRM","body":"The main gate is 1.5 km away. Most students never need a cab, and Potheri station is closer still."},
+  {"kicker":"Room to breathe","title":"Bigger than a hostel, saner than a PG","body":"1,200 to 1,600 sq ft, with cross-ventilation, balconies and a study. Split four ways, it often costs less than co-living."},
+  {"kicker":"A real community","title":"Towers around a landscaped green, beside the lake","body":"Families, faculty and young professionals. A pool, rooftop club pool, jogging track and gym, with security at the gate."},
+  {"kicker":"Connected corridor","title":"GST Road, MWC and the airport","body":"GST Road is three minutes away. Mahindra World City is a 25-minute drive and the airport about 45."}
+ ]
+}

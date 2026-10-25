@@ -1,0 +1,12 @@
+[
+ {"id": "pool", "title": "Swimming pool + rooftop club pool", "body": "A landscaped pool between the towers, and a second pool on the clubhouse roof.", "icon": "Waves", "image": "/images/amenities/swimming-pool.webp"},
+ {"id": "gym", "title": "Equipped gym", "body": "Cardio, free weights and a yoga deck overlooking the central green.", "icon": "Dumbbell", "image": "/images/amenities/gym.webp"},
+ {"id": "clubhouse", "title": "Clubhouse", "body": "Party hall, indoor games and a reading room that doubles as a quiet study. Rooftop pool upstairs.", "icon": "Building2", "image": "/images/amenities/clubhouse.webp"},
+ {"id": "green", "title": "Jogging track & lake edge", "body": "A looping jogging track through the gardens, running along the lake on the east side.", "icon": "Trees", "image": "/images/amenities/central-green.webp"},
+ {"id": "play", "title": "Children's play area", "body": "Fenced play area next to the pool, in sight of the walkway.", "icon": "Trees", "image": "/images/amenities/play-area.webp"},
+ {"id": "security", "title": "24×7 gated security", "body": "Manned gates, visitor management and CCTV across common areas.", "icon": "ShieldCheck", "image": "/images/amenities/security-gate.webp"},
+ {"id": "power", "title": "Full power back-up", "body": "DG back-up for common areas and limited back-up inside every flat.", "icon": "Zap", "image": "/images/amenities/power-backup.webp"},
+ {"id": "water", "title": "Metro & borewell water", "body": "Treated water with an on-site STP; tanker supply has not been needed in summer.", "icon": "Droplets", "image": "/images/amenities/water-treatment.webp"},
+ {"id": "courts", "title": "Sports courts", "body": "Badminton, half basketball and a cricket practice net.", "icon": "Trophy", "image": "/images/amenities/sports-courts.webp"},
+ {"id": "store", "title": "In-estate convenience store", "body": "Groceries, milk and pharmacy pick-up without leaving the gate.", "icon": "ShoppingBasket", "image": "/images/amenities/convenience-store.webp"}
+]

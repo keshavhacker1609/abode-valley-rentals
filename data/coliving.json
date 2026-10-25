@@ -1,0 +1,24 @@
+[
+ {"id":"potheri-gate-residence","name":"Potheri Gate Residence","operator":"Stanza Living","locality":"Potheri, 600 m from SRM main gate","gender":"Male","distanceKm":0.6,"image":"/images/coliving/residence-potheri-gate.webp",
+  "rooms":[
+   {"sharing":"single","price":17500,"available":3,"sizeSqft":140},
+   {"sharing":"double","price":12500,"available":6,"sizeSqft":190},
+   {"sharing":"triple","price":9800,"available":4,"sizeSqft":250}],
+  "inclusions":{"meals":"3 meals, 7 days","wifi":"100 Mbps","housekeeping":"Daily","laundry":"4 washes / month","ac":true,"powerBackup":true,"gym":false,"security":"24×7 + CCTV"}},
+ {"id":"srm-nagar-house","name":"SRM Nagar House","operator":"Stanza Living","locality":"SRM Nagar, behind Tech Park","gender":"Female","distanceKm":1.1,"image":"/images/coliving/residence-srm-nagar.webp",
+  "rooms":[
+   {"sharing":"single","price":18500,"available":2,"sizeSqft":150},
+   {"sharing":"double","price":13200,"available":5,"sizeSqft":200}],
+  "inclusions":{"meals":"3 meals, 7 days","wifi":"150 Mbps","housekeeping":"Daily","laundry":"Unlimited","ac":true,"powerBackup":true,"gym":true,"security":"24×7 warden + biometric"}},
+ {"id":"kattankulathur-court","name":"Kattankulathur Court","operator":"Stanza Living","locality":"Near Kattankulathur station","gender":"Male","distanceKm":2.3,"image":"/images/coliving/residence-ktr-court.webp",
+  "rooms":[
+   {"sharing":"double","price":11000,"available":8,"sizeSqft":185},
+   {"sharing":"triple","price":8700,"available":9,"sizeSqft":240}],
+  "inclusions":{"meals":"Breakfast & dinner","wifi":"75 Mbps","housekeeping":"Alternate days","laundry":"4 washes / month","ac":false,"powerBackup":true,"gym":false,"security":"24×7 + CCTV"}},
+ {"id":"gst-road-commons","name":"GST Road Commons","operator":"Stanza Living","locality":"GST Road, Maraimalai Nagar side","gender":"Co-ed (separate floors)","distanceKm":3.4,"image":"/images/coliving/residence-gst-commons.webp",
+  "rooms":[
+   {"sharing":"single","price":16000,"available":4,"sizeSqft":135},
+   {"sharing":"double","price":11800,"available":3,"sizeSqft":180},
+   {"sharing":"triple","price":9200,"available":0,"sizeSqft":235}],
+  "inclusions":{"meals":"3 meals, weekdays","wifi":"100 Mbps","housekeeping":"Daily","laundry":"6 washes / month","ac":true,"powerBackup":true,"gym":true,"security":"24×7 + CCTV"}}
+]
